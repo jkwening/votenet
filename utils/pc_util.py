@@ -382,7 +382,7 @@ def write_bbox(scene_bbox, out_filename):
     
     mesh_list = trimesh.util.concatenate(scene.dump())
     # save to ply file    
-    trimesh.io.export.export_mesh(mesh_list, out_filename, file_type='ply')
+    mesh_list.export(out_filename, file_type='ply')
     
     return
 
@@ -420,7 +420,7 @@ def write_oriented_bbox(scene_bbox, out_filename):
     
     mesh_list = trimesh.util.concatenate(scene.dump())
     # save to ply file    
-    trimesh.io.export.export_mesh(mesh_list, out_filename, file_type='ply')
+    mesh_list.export(out_filename, file_type='ply')
     
     return
 
@@ -459,7 +459,7 @@ def write_oriented_bbox_camera_coord(scene_bbox, out_filename):
     
     mesh_list = trimesh.util.concatenate(scene.dump())
     # save to ply file    
-    trimesh.io.export.export_mesh(mesh_list, out_filename, file_type='ply')
+    mesh_list.export(out_filename, file_type='ply')
     
     return
 
@@ -481,7 +481,7 @@ def write_lines_as_cylinders(pcl, filename, rad=0.005, res=64):
         height = np.sqrt(np.dot(vec, vec))
         scene.add_geometry(trimesh.creation.cylinder(radius=rad, height=height, sections=res, transform=M))
     mesh_list = trimesh.util.concatenate(scene.dump())
-    trimesh.io.export.export_mesh(mesh_list, '%s.ply'%(filename), file_type='ply')
+    mesh_list.export('%s.ply'%(filename), file_type='ply')
 
 # ----------------------------------------
 # Testing

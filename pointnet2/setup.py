@@ -3,9 +3,13 @@
 # This source code is licensed under the MIT license found in the
 # LICENSE file in the root directory of this source tree.
 
+import os
 from setuptools import setup
 from torch.utils.cpp_extension import BuildExtension, CUDAExtension
 import glob
+
+# Set CUDA architecture list for CUDA 12.8 (supports Ampere, Ada, Hopper)
+os.environ["TORCH_CUDA_ARCH_LIST"] = "7.0;7.5;8.0;8.6;9.0+PTX"
 
 _ext_src_root = "_ext_src"
 _ext_sources = glob.glob("{}/src/*.cpp".format(_ext_src_root)) + glob.glob(

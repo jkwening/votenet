@@ -1,0 +1,10 @@
+__pycache__/
+
+# Build artifacts from PointNet++ CUDA extension
+pointnet2/build/
+pointnet2/*.egg-info/
+pointnet2/*.so
+
+# demo files and related zip file
+demo_files/
+votenet_pretrained_models.zip
